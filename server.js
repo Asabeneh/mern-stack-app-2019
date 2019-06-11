@@ -15,8 +15,6 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
   console.log('Server is connected to MongoDB Database')
 })
 
-
-
 app.use(cors())
 app.use(express.json());
 app.use('/api/v1.0', studentRoute);

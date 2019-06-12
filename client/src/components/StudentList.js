@@ -30,7 +30,7 @@ import Student from './Student';
   render() {
     return (
       <div>
-        <h3>Numbers student:{this.state.students.length}</h3>
+        <h3>Number of students:{this.state.students.length}</h3>
        
        <table className="table table-striped">
        <thead>

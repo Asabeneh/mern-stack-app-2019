@@ -2,7 +2,6 @@ const express = require('express');
 const studentRoute = express.Router();
 const Student = require('../models/Student');
 
-
 studentRoute.get('/', (req, res) => {
   res.send('Mern Applicaton')
 });

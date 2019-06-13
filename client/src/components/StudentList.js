@@ -7,7 +7,7 @@ import Student from './Student';
      students:[]
    }
    componentDidMount () {
-     const apiURL = 'http://localhost:5000/api/v1.0/students';
+     const apiURL = '/api/v1.0/students';
      axios.get(apiURL).then(response => {
         this.setState({
          students:response.data

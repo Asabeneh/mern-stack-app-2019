@@ -14,14 +14,6 @@ import Student from './Student';
        })
 
      })
-    //  fetch(apiURL).then(response => response.json())
-    //  .then((data) => {
-    //    console.log(data);
-    //    this.setState({
-    //      students:data
-    //    })
-    //  })
-
    }
    renderStudentList = () => {
      const students = this.state.students;

@@ -6,11 +6,13 @@ import PropTypes from 'prop-types'
 const Student = props => {
   const deleteStudent = (id) => {
     const url = `/api/v1.0/students/${id}`;
-    axios.delete(url).then(response => {
-      console.log(response)
-      console.log(props)
-    
-    }).catch(error => console.log(error))
+    const confirm = window.confirm('Are you do you like to delete ?');
+    if(confirm) {
+      axios.delete(url).then(response => {
+        console.log(response)
+      }).catch(error => console.log(error))
+
+    }
 
   }
   return (

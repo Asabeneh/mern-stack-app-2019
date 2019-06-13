@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const Index = props => {
   return (
     <div className="jumbotron">
-      <NavLink to="/students">Go to students page</NavLink>
+      <NavLink to="/students" className="text-center landing"><h2>Go to students</h2></NavLink>
     </div>
   )
 }

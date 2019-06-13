@@ -8,8 +8,8 @@ export class StudentDetail extends Component {
   }
   componentDidMount () {
 const id = this.props.match.params.id;
-  const apiURL = `/api/v1.0/students/${id}`;
-    axios.get(apiURL).then(response => {
+const url = `/api/v1.0/students/${id}`;
+    axios.get(url).then(response => {
       console.log(response);
       this.setState({student:response.data})
     })
@@ -23,10 +23,10 @@ const id = this.props.match.params.id;
     const {name, country, age, bio} = this.state.student;
     return (
       
-      <div>
-        <h2>{name}</h2>
-        <h3>{country}</h3>
-        <h4>{age}</h4>
+      <div style = {{marginTop:20}}>
+        <h3 className="text-center jumbotron">{name}</h3>
+        <p>{country}</p>
+        <p>{age}</p>
         <p>{bio}</p>
       </div>
     )

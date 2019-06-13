@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start":"node server.js"
+    "client-install": "yarn --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "yarn start --prefix client",
+    "dev": "concurrently \"yarn run server\" \"cd client && yarn  && yarn start\"",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "license": "MIT",
   "dependencies": {
@@ -11,5 +16,8 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.5.14"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
   }
 }

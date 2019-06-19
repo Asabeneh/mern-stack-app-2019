@@ -1,18 +1,20 @@
 const express = require('express');
 const studentRoute = express.Router();
 const Student = require('../models/Student');
+const jwt = require('jsonwebtoken');
+const passport = require('passport')
 
-studentRoute.get('/', (req, res) => {
-  res.send('Mern Applicaton')
+studentRoute.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.send('Home page ')
 });
 studentRoute.get('/students', (req,res) => {
- Student.find({}, (err, students) => {
-   if(err){
-     return res.status(404).send('Students not found')
-   }
-   res.json(students)
- })
-
+      Student.find({}, (err, students) => {
+        if (err) {
+          return res.status(404).send('Students not found')
+        }
+        res.json(students)
+      })
+  
 })
 
 studentRoute.get('/students/:id', (req, res) => {
@@ -65,6 +67,25 @@ studentRoute.delete('/students/:id', (req, res) => {
   })
 
 })
+
+
+function verifyToken(req, res, next) {
+  const bearerHeader = req.headers['authorization'];
+  if (bearerHeader) {
+    //Split at the space
+    const bearer = bearerHeader.split(' ');
+    //Get token from an array
+    const bearerToken = bearer[1];
+    //set the token
+    console.log('bearerToken', bearerToken);
+    req.token = bearerToken;
+    //Next middleware
+    next();
+  } else {
+    return res.status(403).json({ message: 'Accessed denied' });
+  }
+}
+
 
 
 

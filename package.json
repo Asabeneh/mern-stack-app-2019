@@ -18,7 +18,10 @@
     "express": "^4.17.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.5.14"
+    "jwt-decode": "^2.2.0",
+    "mongoose": "^5.5.14",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0"

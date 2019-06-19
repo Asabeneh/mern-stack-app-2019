@@ -11,7 +11,7 @@ userRoute.get('/', (req, res) => {
 userRoute.post('/signup', (req, res) => {
   const errors = {};
   const {firstName, username, email, password} = req.body;
-  const avatar = gravatar.url(req.body.email, { s: '100', r: 'x', d: 'retro' }, true);
+  const avatar = gravatar.url(email, { s: '100', r: 'x', d: 'retro' }, true);
   User.findOne({email}, (err, user) => {
     if(user) {
       errors.email = 'Email has already taken';
@@ -60,12 +60,12 @@ userRoute.post('/signin', (req, res) => {
             email:user.email,
             avatar:user.avatar
           }
-          const key = 'secretOrKey';
+          
 
-          jwt.sign(payload, key, {expiresIn:3600}, (err, token) => {
+          jwt.sign(payload, process.env.secretOrKey, {expiresIn:3600}, (err, token) => {
             res.json({
               success:true,
-              token:token
+              token:`Bearer ${token}`
             })
           })
 

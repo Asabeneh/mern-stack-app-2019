@@ -46,7 +46,7 @@ class Signin extends Component {
         </div>
         
         <button className="btn btn-primary" type="submit">Sign In</button> {' '}
-        <NavLink to="/signup" className="btn btn-primary">Sign Up </NavLink>
+        <NavLink to="/signup" className="btn btn-secondary">Sign Up </NavLink>
 
       </form>
     )

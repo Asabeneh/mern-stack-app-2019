@@ -47,12 +47,14 @@ class App extends Component{
       })
   }
   logoutUser = () => {
-    localStorage.removeItem('jwtToken');
-    setAuthHeader(false);
-    this.setState({
-      auth:{...this.state.auth, isAuthenticated:false, currentUser:{}}
-    })
-    window.location.href = '/login'
+      localStorage.removeItem('jwtToken');
+      setAuthHeader(false);
+      this.setState({
+        auth: { ...this.state.auth, isAuthenticated: false, currentUser: {} }
+      })
+      window.location.href = '/login'
+  
+   
   }
   render () {
     const {auth, errors} = this.state;

@@ -19,9 +19,9 @@ const Navbar = props => {
               <NavLink className="nav-link" to="/add-student">Add Student</NavLink>
             </li>
             <li className="nav-item">
-            {firstName}
-            <img src = {avatar} alt = {firstName} />
-              <button onClick={logoutUser} className="nav-link">Logout</button>
+           
+           
+              <h3 to="/signin" onClick={logoutUser} className="nav-link"> <img src={avatar} alt={firstName} /> {firstName}</h3>
             </li>
           </ul>
         </div>

@@ -4,13 +4,14 @@ const User = require('../models/User');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const validateSigninInput = require('../validation/signin-validation')
+const validateSigninInput = require('../validation/signin-validation');
+const validateSignupInput = require('../validation/signup-validation');
 
 userRoute.get('/', (req, res) => {
   res.send('Welcome user')
 })
 userRoute.post('/signup', (req, res) => {
-  const errors = {};
+  const {errors, isValid} = validateSignupInput(req.body)
   const {firstName, username, email, password} = req.body;
   const avatar = gravatar.url(email, { s: '100', r: 'x', d: 'retro' }, true);
   User.findOne({email}, (err, user) => {

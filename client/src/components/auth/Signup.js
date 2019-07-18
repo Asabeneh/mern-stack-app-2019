@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types'
 
@@ -19,10 +19,7 @@ class Signup extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    const {firstName, username, email, password} = this.state;
-    const data = {firstName, username, email, password}
-
-    axios.post('/api/v1.0/users/signup',data)
+    axios.post('/api/v1.0/users/signup',this.state)
     .then(response => {
       this.props.history.push('/signin')
     })
@@ -30,8 +27,6 @@ class Signup extends Component {
       console.log(err)
     })
     
-   
-   
   }
   render() {
     return (
@@ -76,7 +71,8 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button className="btn btn-primary" type="submit">Sign Up</button>
+        <button className="btn btn-primary" type="submit">Sign Up</button> {}
+        <NavLink to="/signin" className="btn btn-secondary">Sign In</NavLink>
 
       </form>
     )

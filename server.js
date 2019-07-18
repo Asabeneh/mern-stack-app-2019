@@ -8,7 +8,8 @@ const studentRoute = require('./server/routes/student-routes');
 const userRoute = require('./server/routes/user-routes')
 const mongoose = require('mongoose');
 const cors = require('cors');
-const passport = require('passport')
+const passport = require('passport');
+
 
 mongoose.connect(process.env.MONGODB_URI, (err) => {
   if(err) {
